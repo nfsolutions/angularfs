@@ -23,7 +23,7 @@ import { AddItemComponent } from './components/add-item/add-item.component';
   imports: [
     BrowserModule,
     FormsModule,
-    AngularFireModule.initializeApp(environment.firebase, 'angularfs'),
+    AngularFireModule.initializeApp(environment.firebaseConfig, 'angularfs'),
     AngularFirestoreModule
   ],
   providers: [ItemService],

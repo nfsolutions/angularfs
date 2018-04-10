@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ItemService } from '../../services/item.service';
-import { Item } from '../../models/Item';
+import {Component, OnInit} from '@angular/core';
+import {ItemService} from '../../services/item.service';
+import {Item} from '../../models/Item';
 
 @Component({
   selector: 'app-items',
@@ -9,36 +9,36 @@ import { Item } from '../../models/Item';
 })
 export class ItemsComponent implements OnInit {
   items: Item[];
-  editState: boolean = false;
+  editState = false;
   itemToEdit: Item;
 
-  constructor(private itemService: ItemService) { }
+  constructor(private itemService: ItemService) {
+  }
 
   ngOnInit() {
     this.itemService.getItems().subscribe(items => {
-      //console.log(items);
+      // console.log(items);
       this.items = items;
     });
   }
 
-  deleteItem(event, item: Item){
+  deleteItem(event, item: Item) {
     this.clearState();
     this.itemService.deleteItem(item);
   }
 
-  editItem(event, item: Item){
+  editItem(event, item: Item) {
     this.editState = true;
     this.itemToEdit = item;
   }
 
-  updateItem(item: Item){
+  updateItem(item: Item) {
     this.itemService.updateItem(item);
     this.clearState();
   }
 
-  clearState(){
+  clearState() {
     this.editState = false;
     this.itemToEdit = null;
   }
-
 }
