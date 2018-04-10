@@ -38,6 +38,5 @@ export class ItemService {
     this.itemDoc = this.afs.doc(`items/${item.id}`);
     this.itemDoc.update(item);
   }
-
 }
 
