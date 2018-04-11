@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ItemService } from '../../services/item.service';
-import { Item } from '../../models/Item'; 
+import {Component, OnInit} from '@angular/core';
+import {ItemService} from '../../services/item.service';
+import {Item} from '../../models/Item';
 
 @Component({
   selector: 'app-add-item',
@@ -10,20 +10,20 @@ import { Item } from '../../models/Item';
 export class AddItemComponent implements OnInit {
   item: Item = {
     title: '',
-    description:''
-  }
+    description: ''
+  };
 
-  constructor(private itemService: ItemService) { }
+  constructor(private itemService: ItemService) {
+  }
 
   ngOnInit() {
   }
 
-  onSubmit(){
-    if(this.item.title != '' && this.item.description != ''){
+  onSubmit() {
+    if (this.item.title !== '' && this.item.description != '') {
       this.itemService.addItem(this.item);
       this.item.title = '';
       this.item.description = '';
     }
   }
-
 }
